@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<widget id="mendix.monthpicker.MonthPicker" pluginWidget="true" needsEntityContext="true" offlineCapable="true"
+        supportedPlatform="Web"
+        xmlns="http://www.mendix.com/widget/1.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.mendix.com/widget/1.0/ ../node_modules/mendix/custom_widget.xsd">
+    <name>Month Picker</name>
+    <description>User is allowed to select a month and year which is stored in a date variable</description>
+    <icon/>
+    <properties>
+        <propertyGroup caption="General">
+        
+            <property key="DateAttribute" type="attribute">
+                <caption>Date Attribute</caption>
+                <description>The attribute where the selected date is stored</description>
+                <attributeTypes>
+                    <attributeType name="DateTime"/>
+                </attributeTypes>
+            </property>
+
+            <property key="MinDateAttribute" type="attribute" required="false">
+                <caption>Minimum Date Attribute</caption>
+                <description>The value of the oldest selectable date</description>
+                <attributeTypes>
+                    <attributeType name="DateTime"/>
+                </attributeTypes>
+            </property>
+            
+            <property key="MaxDateAttribute" type="attribute" required="false">
+                <caption>Maximum Date Attribute</caption>
+                <description>The value of the latest selectable date</description>
+                <attributeTypes>
+                    <attributeType name="DateTime"/>
+                </attributeTypes>
+            </property>
+        </propertyGroup>
+    </properties>
+</widget>
