@@ -32,6 +32,13 @@
                     <attributeType name="DateTime"/>
                 </attributeTypes>
             </property>
+
+            <property key="SelectPlaceholder" type="string" required="false">
+                <caption>Placeholder</caption>
+                <description>The value that shows when no date is selected</description>
+            </property>
+            
         </propertyGroup>
+
     </properties>
 </widget>

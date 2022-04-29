@@ -6,7 +6,7 @@ import Picker from 'react-month-picker';
 
 import "./ui/MonthPicker.css";
 
-export function MonthPicker({ DateAttribute, MinDateAttribute, MaxDateAttribute }) { 
+export function MonthPicker({ DateAttribute, MinDateAttribute, MaxDateAttribute, SelectPlaceholder }) { 
     const pickerRef = useRef(null)
 
     const pickerLang = {
@@ -36,7 +36,7 @@ export function MonthPicker({ DateAttribute, MinDateAttribute, MaxDateAttribute 
     const toString = () => {
         console.log('Date Attribute value: ' + DateAttribute.value) //Sat Feb 01 2014 00:00:00 GMT-0500 (Eastern Standard Time)
         const dateValue = new Date(DateAttribute.value)    
-        return dateValue == 'Invalid Date' ? 'Select a month' : makeText({year: dateValue.getFullYear(), month: dateValue.getMonth()+1})
+        return dateValue == 'Invalid Date' ? SelectPlaceholder : makeText({year: dateValue.getFullYear(), month: dateValue.getMonth()+1})
     }
 
     return <div className="edit">
