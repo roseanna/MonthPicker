@@ -39,11 +39,33 @@ export function MonthPicker({ DateAttribute, MinDateAttribute, MaxDateAttribute,
         return dateValue == 'Invalid Date' ? SelectPlaceholder : makeText({year: dateValue.getFullYear(), month: dateValue.getMonth()+1})
     }
 
+    const generateYears = () => {
+        console.log('Max Date Attribute: ' + MaxDateAttribute)
+        console.log('Min Date Attribute: ' + MinDateAttribute)
+        
+        // MinYear/maxYear not setting correctly with the right value. Need to take closer look.  (and to remove line 52/53)
+        let minYear = MinDateAttribute === undefined ? 2020 : new Date(MinDateAttribute.value).getFullYear()
+        let maxYear = MaxDateAttribute === undefined ? new Date().getFullYear() + 100 : new Date(MaxDateAttribute.value).getFullYear()
+        console.log('Min Year: ' + minYear + ', Max Year: ' + maxYear)
+        let years = []
+
+        minYear = isNaN(minYear) ? 2020 : minYear
+        maxYear = isNaN(maxYear) ? new Date().getFullYear() + 10 : maxYear
+        console.log('Min Year: ' + minYear + ', Max Year: ' + maxYear)
+
+        for (let i = minYear; i < maxYear; i++) {
+            years.push(i)
+        }
+        console.log('Years: ' + years)
+
+        return years
+    }
+
     return <div className="edit">
         <Picker
             ref={pickerRef}
-            years={[2008, 2011, 2012, 2014, 2016, 2018, 2020]}
-            value={{year: 2014, month: 11}}
+            years={generateYears()}
+            value={{year: new Date().getFullYear(), month: new Date().getMonth()}}
             lang={pickerLang.months}
             onChange={handleAMonthChange}
             // onDismiss={this.handleAMonthDissmis}
